@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Products.Domain.Category>
+
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Products.Domain;
+
+<h2>Category</h2>
+<html>
+
+<head>
+   
+    <title>Details</title>
+</head>
+
+<body>
+    <table align="center">
+
+        <tr>
+            @foreach (Category category in @Model)
+            {
+                <td>
+                    <ul>
+                        <li>
+                            @Html.ActionLink(category.Category1, "Details", new { Id = category.Category1.Trim() })
+                        </li>
+                    </ul>
+                </td>
+
+            }
+        </tr>
+    </table>
+
+    <div>
+        @Html.ActionLink("Show All Products", "Details")
+    </div>
+
+</body>
+</html>
+

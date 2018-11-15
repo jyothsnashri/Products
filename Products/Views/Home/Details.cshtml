@@ -1,0 +1,33 @@
+﻿@model  IEnumerable<Products.Domain.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    WebGrid webGrid = new WebGrid(source: Model);
+}
+
+
+
+
+<h2>Products</h2>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+    <title>Details </title>
+</head>
+<body>
+    @webGrid.GetHtml(
+        htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+        columns: webGrid.Columns(
+
+                              webGrid.Column("Number", "Article no"),
+                              webGrid.Column("Name", "Article name", format: @<text><a href="/ProductDetails/@item.ID">@item.Name</a></text>),
+                              webGrid.Column("Description", "Description"),
+                              webGrid.Column("Category", "Category", format: @<text><a href="/Details/@item.Category">@item.Category</a></text>),
+                              webGrid.Column("Price", "Price in SEK VAT included "),
+                              webGrid.Column("Action", format: @<text><a href="/ProductDetailsEdit/@item.ID">Edit</a></text>)))
+
+
+
+</body>
+</html>

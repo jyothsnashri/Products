@@ -1,0 +1,47 @@
+﻿@model Products.Domain.Product
+@{
+    ViewBag.Title = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Product  Details</h2>
+
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="~/Content/Site.css" />
+</head>
+<body>
+    <table align="center">
+        <tr>
+
+            <td><b>Article no</b></td>
+            <td>@Model.Number </td>
+        </tr>
+        <tr>
+            <td><b>Article name</b></td>
+            <td>@Model.Name </td>
+        </tr>
+        <tr>
+            <td><b>Description</b></td>
+            <td>@Model.Description </td>
+        </tr>
+
+            <td><b>Category</b></td>
+            <td>@Model.Category </td>
+        </tr>
+        <tr>
+            <td><b>Price in SEK VAT included</b></td>
+            <td>@Model.Price </td>
+        </tr>
+
+        <tr>
+            <td><b>Price in SEK VAT Excluded</b></td>
+            <td>@Model.ExcludingPrice </td>
+        </tr>
+    </table>
+
+     @Html.ActionLink("Back to Product","Details") 
+           
+</body>
+</html>
